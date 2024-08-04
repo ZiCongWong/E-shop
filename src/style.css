@@ -1,0 +1,22 @@
+:root[data-theme="light"] {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --text: #080024;
+  --background: #f3f0ff;
+  --primary: #4c1bfe;
+  --secondary: #ff6b93;
+  --accent: #ff6647;
+}
+
+:root[data-theme="dark"] {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --text: #e3dbff;
+  --background: #03000f;
+  --primary: #3201e4;
+  --secondary: #940027;
+  --accent: #b81f00;
+}
+body {
+  margin: 0;
+}
