@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import HelloWorld from '@@/HelloWorld.vue'
+
 </script>
 
 <template>
-  <div>
-    <el-button type="primary">Primary</el-button>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+
+  <RouterView />
+
 </template>
 
 <style scoped>
 .logo {
-  height: 6em; 
+  height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
