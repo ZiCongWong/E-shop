@@ -25,4 +25,4 @@ http.interceptors.response.use(response => {
   return Promise.reject(error)
 })
 
-export default http
+export default http  // 导出http对象
