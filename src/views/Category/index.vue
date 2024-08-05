@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { watch } from "vue";
 import { useCategory } from "./composables/useCategories";
 import { useBanner } from "./composables/useBanner";
 import GoodsItem from "../Home/components/GoodsItem.vue";
@@ -31,7 +30,7 @@ const { categoryList } = useCategory();
         <h3>全部分类</h3>
         <ul>
           <li v-for="i in categoryList.children" :key="i.id">
-            <RouterLink to="/">
+            <RouterLink :to="`sub/${i.id}`">
               <img :src="i.picture" />
               <p>{{ i.name }}</p>
             </RouterLink>

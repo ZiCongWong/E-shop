@@ -13,11 +13,16 @@ declare module 'vue' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     LayoutFooter: typeof import('./src/components/LayoutFooter.vue')['default']
     LayoutHeader: typeof import('./src/components/LayoutHeader.vue')['default']
     LayoutNav: typeof import('./src/components/LayoutNav.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+  }
+  export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
   }
 }
