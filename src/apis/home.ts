@@ -5,9 +5,11 @@ import http from "@/utils/http";
  * @param {*}
  * @return {*}
  */
-export const getBannerAPI = () => {
+export const getBannerAPI = (params: any = {}) => {
+  const { distributionSite = "1" } = params;
   return http({
     url: "/home/banner",
+    params: { distributionSite },
   });
 };
 
