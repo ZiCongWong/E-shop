@@ -13,6 +13,7 @@
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.3",
     "element-plus": "^2.7.8",
+    "groq-sdk": "^0.5.0",
     "pinia": "^2.2.0",
     "vue": "^3.4.31",
     "vue-router": "^4.4.2"
