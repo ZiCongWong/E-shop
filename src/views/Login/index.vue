@@ -1,10 +1,17 @@
 <script setup lang="ts">
+import { loginApi } from "@/apis/user";
+import "element-plus/theme-chalk/el-message.css";
+import { ElMessage } from "element-plus";
 //1.准备表单组件
 import { ref } from "vue";
-const form = ref({
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user";
+
+const userStore = useUserStore();
+const router = useRouter();
+const form = ref<any>({
   account: "",
   password: "",
-  remember: false,
   agree: true,
 });
 
@@ -30,9 +37,20 @@ const rules = {
 
 const formRef = ref<any>(null);
 const doLogin = () => {
-  formRef.value.validate((valid: boolean) => {
+  const { account, password } = form.value;
+  formRef.value.validate(async (valid: boolean) => {
     //valid为true表示验证成功，false表示验证失败
-    console.log(valid);
+    if (valid) {
+      userStore.getUserInfo({ account, password });
+      const res = await loginApi({
+        account,
+        password,
+      });
+      console.log(res);
+
+      ElMessage({ type: "success", message: "登录成功！" });
+      router.replace({ path: "/" });
+    }
   });
 };
 </script>
@@ -75,7 +93,7 @@ const doLogin = () => {
       </div>
     </section>
 
-    <footer class="login-footer" >
+    <footer class="login-footer">
       <div class="container">
         <p>
           <a href="javascript:;">关于我们</a>
