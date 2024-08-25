@@ -19,7 +19,7 @@ export const useCartStore = defineStore(
   () => {
     const userStore = useUserStore();
     const isLogin = computed(() => userStore.userInfo.token);
-    const cartList = ref<any[]>([]);
+    const cartList  = ref<any[]>([]);
     const addCart = async (goods: CartItem) => {
       console.log("添加", goods);
       const { skuId, count } = goods;
