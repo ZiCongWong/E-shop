@@ -1,5 +1,24 @@
 <script setup lang="ts">
-const userStore = {}
+import {useUserStore} from "@/stores/user.ts";
+import {getLikeListAPI} from "@/apis/user.ts";
+import {onMounted, ref} from "vue";
+import GoodsItem from "@/views/Home/components/GoodsItem.vue";
+
+// 喜欢的商品列表
+
+const likeList = ref<Array>([])
+const userStore = useUserStore();
+
+/**
+ * @description: 获取喜欢的商品列表
+ * @return {void}
+ */
+const getLikeList = async () => {
+  const res = await getLikeListAPI({limit: 4})
+  likeList.value = res.data.result
+}
+
+onMounted(() => getLikeList())
 </script>
 
 <template>
@@ -7,7 +26,7 @@ const userStore = {}
     <!-- 用户信息 -->
     <div class="user-meta">
       <div class="avatar">
-        <img :src="userStore.userInfo?.avatar" />
+        <img :src="userStore.userInfo?.avatar"/>
       </div>
       <h4>{{ userStore.userInfo?.account }}</h4>
     </div>
@@ -32,7 +51,7 @@ const userStore = {}
         <h4 data-v-bcb266e0="">猜你喜欢</h4>
       </div>
       <div class="goods-list">
-        <!-- <GoodsItem v-for="good in likeList" :key="good.id" :good="good" /> -->
+        <GoodsItem v-for="good in likeList" :key="good.id" :goods="good"/>
       </div>
     </div>
   </div>

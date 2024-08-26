@@ -16,10 +16,10 @@ const confirm = () => {
       <ul>
         <template v-if="userStore.userInfo.token">
           <li>
-            <a href="javascript:;">
+            <RouterLink to="/member">
               <i class="iconfont icon-user"></i>
               {{ userStore.userInfo.account }}
-            </a>
+            </RouterLink>
           </li>
           <li>
             <el-popconfirm @confirm="confirm" title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
