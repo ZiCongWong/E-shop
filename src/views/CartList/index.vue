@@ -8,6 +8,10 @@ const singleCheck = (i: any, selected: boolean) => {
 const allCheck = (selected: boolean) => {
   cartStore.allCheck(selected);
 };
+
+const delCart = (i: any) => {
+  cartStore.removeCart(i.skuId);
+}
 </script>
 
 <template>

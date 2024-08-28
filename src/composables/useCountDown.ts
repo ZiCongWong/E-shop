@@ -10,7 +10,7 @@ import dayjs from "dayjs";
  * }
  */
 export const useCountDown = () => {
-    let timer = null
+    let timer: any = null
     //1.响应式的数据
     const time = ref(0)
     //格式化时间

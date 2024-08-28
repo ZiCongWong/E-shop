@@ -11,7 +11,7 @@ const {formatTime, start} = useCountDown()
  * @return {*}
  */
 const route = useRoute();
-const payInfo = ref({});
+const payInfo = ref<any>({});
 const getPayInfo = async () => {
   const res = await getOrderApi(route.query.id);
   payInfo.value = res.data.result

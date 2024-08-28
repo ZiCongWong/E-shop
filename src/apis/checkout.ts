@@ -20,7 +20,7 @@ export const createOrderAPI = (data: any) => {
     })
 }
 
-export const getOrderApi = (id: number) => {
+export const getOrderApi = (id: any) => {
     return request({
         url: `/member/order/${id}`
     })

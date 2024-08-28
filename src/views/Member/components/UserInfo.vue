@@ -6,7 +6,7 @@ import GoodsItem from "@/views/Home/components/GoodsItem.vue";
 
 // 喜欢的商品列表
 
-const likeList = ref<Array>([])
+const likeList = ref<any>([])
 const userStore = useUserStore();
 
 /**

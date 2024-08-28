@@ -7,18 +7,18 @@ import {useRouter} from "vue-router";
 const router = useRouter();
 const cartStore = useCartStore()
 const curAddress = ref<any>({})  // 地址对象
-const defaultAddress = ref<any>({})
-const checkInfo = ref({})  // 订单对象
+
+const checkInfo = ref<any>({})  // 订单对象
 const getCheckInfo = async () => {
   const res = await getCheckInfoAPI()
   checkInfo.value = res.data.result
-  curAddress.value = checkInfo.value.userAddresses.find(item => item.isDefault === 0)
+  curAddress.value = checkInfo.value.userAddresses?.find(item => item.isDefault === 0)
 }
 onMounted(() => getCheckInfo())
 
 const showDialog = ref(false)  // 切换地址弹窗
 
-const activeAddress = ref({})   // 当前选中的地址
+const activeAddress = ref<any>({})   // 当前选中的地址
 const switchAddress = (item: any) => {
   activeAddress.value = item
 }
@@ -154,7 +154,7 @@ const createOrder = async () => {
   <el-dialog v-model="showDialog" title="切换收货地址" width="30%" center>
     <div class="addressWrapper">
       <div class="text item" @click="switchAddress(item)" :class="{active:activeAddress.id === item.id}" v-for="item in
-      checkInfo.userAddresses"
+      checkInfo?.userAddresses"
            :key="item.id">
         <ul>
           <li><span>收<i/>货<i/>人：</span>{{ item.receiver }}</li>

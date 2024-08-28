@@ -3,7 +3,7 @@ import {getOrderApi} from "@/apis/checkout.ts";
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 
-const orderInfo = ref({})
+const orderInfo = ref<any>({})
 const route = useRoute()
 const getOrderInfo = async () => {
   const res = await getOrderApi(route.query.orderId);

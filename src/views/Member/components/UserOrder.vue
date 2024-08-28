@@ -2,8 +2,8 @@
 import {getUserOrder} from "@/apis/order.ts";
 import {onMounted, ref} from "vue";
 
-const fomartPayState = (payState) => {
-  const stateMap = {
+const fomartPayState = (payState: any) => {
+  const stateMap: any = {
     1: '待付款',
     2: '待发货',
     3: '待收货',
@@ -25,7 +25,7 @@ const tabTypes = [
 ]
 const total = ref(0)
 // 订单列表
-const orderList = ref<Array>([])
+const orderList = ref<any>([])
 const params = ref<any>({
   orderSate: 0,
   page: 1,
@@ -36,13 +36,13 @@ const getOrderList = async () => {
   orderList.value = res.data.result.items
   total.value = res.data.result.counts
 }
-const tabChange = (type) => {
+const tabChange = (type: any) => {
   params.value.orderSate = type
   getOrderList()
 }
 onMounted(() => getOrderList())
 
-const pageChange = (page) => {
+const pageChange = (page: any) => {
   params.value.page = page
   getOrderList()
 }
@@ -91,7 +91,7 @@ const pageChange = (page) => {
                 </ul>
               </div>
               <div class="column state">
-                <p>{{ fomartPayState(order.orderState)}}</p>
+                <p>{{ fomartPayState(order.orderState) }}</p>
                 <p v-if="order.orderState === 3">
                   <a href="javascript:;" class="green">查看物流</a>
                 </p>

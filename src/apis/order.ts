@@ -5,7 +5,7 @@ import request from "@/utils/http.ts"
  * @param {Object} params - 请求参数
  * @return {Promise} - 返回请求的Promise对象
  */
-export const getUserOrder = (params) => {
+export const getUserOrder = (params: any) => {
     return request({
         url: '/member/order',
         method: 'GET',
